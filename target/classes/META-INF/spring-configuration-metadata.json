@@ -1,0 +1,47 @@
+{
+  "groups": [
+    {
+      "name": "sc-blob.jwt",
+      "type": "com.fjl.blob.properties.JwtProperties",
+      "sourceType": "com.fjl.blob.properties.JwtProperties"
+    },
+    {
+      "name": "sc-blob.minio",
+      "type": "com.fjl.blob.properties.MinioProperties",
+      "sourceType": "com.fjl.blob.properties.MinioProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "sc-blob.jwt.expiration",
+      "type": "java.lang.Long",
+      "sourceType": "com.fjl.blob.properties.JwtProperties"
+    },
+    {
+      "name": "sc-blob.jwt.salt",
+      "type": "java.lang.String",
+      "sourceType": "com.fjl.blob.properties.JwtProperties"
+    },
+    {
+      "name": "sc-blob.minio.access-key",
+      "type": "java.lang.String",
+      "sourceType": "com.fjl.blob.properties.MinioProperties"
+    },
+    {
+      "name": "sc-blob.minio.bucket-name",
+      "type": "java.lang.String",
+      "sourceType": "com.fjl.blob.properties.MinioProperties"
+    },
+    {
+      "name": "sc-blob.minio.endpoint",
+      "type": "java.lang.String",
+      "sourceType": "com.fjl.blob.properties.MinioProperties"
+    },
+    {
+      "name": "sc-blob.minio.secret-key",
+      "type": "java.lang.String",
+      "sourceType": "com.fjl.blob.properties.MinioProperties"
+    }
+  ],
+  "hints": []
+}
