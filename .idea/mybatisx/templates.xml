@@ -69,8 +69,8 @@
             <option name="tableUIInfoList">
               <list>
                 <TableUIInfo>
-                  <option name="className" value="BlobUserRole" />
-                  <option name="tableName" value="blob_user_role" />
+                  <option name="className" value="BlobLabel" />
+                  <option name="tableName" value="blob_label" />
                 </TableUIInfo>
               </list>
             </option>

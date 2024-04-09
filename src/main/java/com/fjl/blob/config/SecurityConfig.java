@@ -51,7 +51,7 @@ public class SecurityConfig {
                         // 排除登录请求
                         .requestMatchers("/user/login").permitAll()
                         .requestMatchers("/user/logout").permitAll()
-                        .requestMatchers(HttpMethod.GET, "/user/**").hasAnyRole("admin", "user")
+                        .requestMatchers(HttpMethod.GET, "/user/**").permitAll()
                         .requestMatchers("/user/**").hasRole("admin")
                         // 其余请求都需要身份校验
                         .anyRequest().authenticated()
