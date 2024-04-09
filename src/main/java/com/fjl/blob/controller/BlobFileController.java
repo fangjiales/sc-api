@@ -12,7 +12,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 @RestController
 @RequestMapping(value = {"/file"})
-public class FileController {
+public class BlobFileController {
     @Autowired
     private MinioUtil minioUtil;
 

@@ -16,7 +16,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = {"/user"})
-public class UserController {
+public class BlobUserController {
     @Autowired
     private BlobUserService blobUserService;
 
