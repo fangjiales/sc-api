@@ -1,58 +1,70 @@
 package com.fjl.blob;
 
-import com.fjl.blob.mapper.BlobMenuMapper;
-import com.fjl.blob.properties.MinioProperties;
+import org.jetbrains.annotations.NotNull;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import java.util.List;
-import java.util.UUID;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.PriorityQueue;
 
-@SpringBootTest
+//@SpringBootTest
 public class MyTest {
-    @Autowired
-    private RedisTemplate<String, Object> redisTemplate;
+    class MyPair<T, V> implements Comparable<MyPair<T, V>> {
+        private T first;
+        private V second;
+        public MyPair() {
+        }
 
-    @Test
-    public void test() {
-        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-        String clm = passwordEncoder.encode("123456");
-        System.out.println(clm);
+        public MyPair(T first, V second) {
+            this.first = first;
+            this.second = second;
+        }
 
-//        HashMap<String, Object> map = new HashMap<>();
-//        map.put("name", "ok");
-//        map.put("money", 777);
-//        String jwt = JwtUtil.createJWT(1000 * 60 * 60, map);
-//        System.out.println(jwt);
-//        Claims claims = JwtUtil.parseJWT(jwt);
-//        System.out.println(claims);
-//        String name = (String) claims.get("name");
-//        Integer money = (Integer) claims.get("money");
-//        System.out.println(name + " " + money);
+        public T getFirst() {
+            return first;
+        }
 
-//        LoginUser obj = (LoginUser) redisTemplate.opsForValue().get("login:1");
-//        System.out.println(obj);
-//        System.out.println(obj.getBlobUser());
+        public void setFirst(T first) {
+            this.first = first;
+        }
+
+        public V getSecond() {
+            return second;
+        }
+
+        public void setSecond(V second) {
+            this.second = second;
+        }
+
+        @Override
+        public int compareTo(@NotNull MyPair<T, V> o) {
+            if ((int) this.getFirst() == (int) o.getFirst()) {
+                return 0;
+            }
+            return (int) this.getFirst() > (int) o.getFirst() ? 1 : -1;
+        }
+
+        @Override
+        public String toString() {
+            return "MyPair{" +
+                    "first=" + first +
+                    ", second=" + second +
+                    '}';
+        }
     }
 
-    @Autowired
-    private BlobMenuMapper blobMenuMapper;
-
     @Test
-    public void menuTest() {
-        List<String> perms = blobMenuMapper.getPermsByUserId(1);
-        System.out.println(perms);
-    }
-
-    @Autowired
-    private MinioProperties minioProperties;
-
-    @Test
-    public void minioTest() {
-        String uuid = UUID.randomUUID().toString();
-        System.out.println(uuid);
+    public void acm() {
+        PriorityQueue<MyPair<Integer, Integer>> pq = new PriorityQueue<>();
+        pq.add(new MyPair<>(3, 4));
+        pq.add(new MyPair<>(1, 4));
+        pq.add(new MyPair<>(5, 4));
+        System.out.println(pq.peek());
+        ArrayList<MyPair<Integer, Integer>> al = new ArrayList<>();
+        al.add(new MyPair<>(3, 4));
+        al.add(new MyPair<>(1, 4));
+        al.add(new MyPair<>(5, 4));
+        Collections.sort(al);
+        System.out.println(al);
     }
 }

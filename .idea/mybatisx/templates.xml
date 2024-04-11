@@ -69,8 +69,8 @@
             <option name="tableUIInfoList">
               <list>
                 <TableUIInfo>
-                  <option name="className" value="BlobLabel" />
-                  <option name="tableName" value="blob_label" />
+                  <option name="className" value="BlobClassify" />
+                  <option name="tableName" value="blob_classify" />
                 </TableUIInfo>
               </list>
             </option>
